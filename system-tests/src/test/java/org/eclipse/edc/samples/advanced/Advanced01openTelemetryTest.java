@@ -44,7 +44,7 @@ public class Advanced01openTelemetryTest {
     private static final String FETCH_DATASET_FROM_CATALOG_FILE_PATH = SAMPLE_FOLDER + "/resources/get-dataset.json";
     private static final String NEGOTIATE_CONTRACT_FILE_PATH = SAMPLE_FOLDER + "/resources/negotiate-contract.json";
     private static final String START_TRANSFER_FILE_PATH = SAMPLE_FOLDER + "/resources/start-transfer.json";
-    private static final String JAEGER_URL = "http://localhost:16686";
+    private static final String JAEGER_URL = "http://localhost:26686";
 
     @Container
     public ComposeContainer environment = new ComposeContainer(getFileFromRelativePath(DOCKER_COMPOSE_YAML))

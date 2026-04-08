@@ -33,7 +33,10 @@ class KafkaToKafkaDataFlowController implements DataFlowController {
 
     @Override
     public boolean canHandle(TransferProcess transferProcess) {
-        return KAFKA_TYPE.equals(transferProcess.getContentDataAddress().getType()) && "KafkaBroker-PULL".equals(transferProcess.getTransferType());
+        var contentDataAddress = transferProcess.getContentDataAddress();
+        return contentDataAddress != null &&
+                KAFKA_TYPE.equals(contentDataAddress.getType()) &&
+                "KafkaBroker-PULL".equals(transferProcess.getTransferType());
     }
 
     @Override
@@ -75,8 +78,26 @@ class KafkaToKafkaDataFlowController implements DataFlowController {
     }
 
     @Override
+    public StatusResult<Void> started(TransferProcess transferProcess) {
+        return StatusResult.success();
+    }
+
+    @Override
+    public StatusResult<Void> completed(TransferProcess transferProcess) {
+        return StatusResult.success();
+    }
+
+    @Override
     public Set<String> transferTypesFor(Asset asset) {
-        return Set.of("Kafka-PULL");
+        return KAFKA_TYPE.equals(asset.getDataAddress().getType()) ? Set.of("KafkaBroker-PULL") : Set.of();
+    }
+
+    @Override
+    public Set<String> transferTypesFor(String sourceType) {
+        // EDC 0.16.0 now calls this overload with the asset id during DSP transfer validation.
+        // This sample runtime only exposes the Kafka broker transfer flow, so it can always
+        // advertise the single supported transfer type here.
+        return Set.of("KafkaBroker-PULL");
     }
 
 }

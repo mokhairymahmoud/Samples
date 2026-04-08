@@ -89,12 +89,11 @@ services:
     environment:
       - COLLECTOR_OTLP_ENABLED=true
     ports:
-      - "4317:4317"
-      - "16686:16686"
+      - "26686:16686"
 
   prometheus:
     image: prom/prometheus:v2.30.3
     volumes:
       - ./prometheus/:/etc/prometheus/
     ports:
-      - "9090:9090"
+      - "29090:9090"

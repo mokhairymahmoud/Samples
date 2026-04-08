@@ -15,6 +15,7 @@
 package org.eclipse.edc.sample.extension.listener;
 
 import org.eclipse.edc.connector.controlplane.transfer.spi.observe.TransferProcessListener;
+import org.eclipse.edc.connector.controlplane.transfer.spi.observe.TransferProcessStartedData;
 import org.eclipse.edc.connector.controlplane.transfer.spi.types.TransferProcess;
 import org.eclipse.edc.spi.monitor.Monitor;
 
@@ -32,7 +33,7 @@ public class TransferProcessStartedListener implements TransferProcessListener {
      * @param process the transfer process that is about to be completed.
      */
     @Override
-    public void preStarted(final TransferProcess process) {
+    public void started(final TransferProcess process, final TransferProcessStartedData startedData) {
         monitor.info("TransferProcessStartedListener received STARTED event");
         // do something meaningful before transfer start
     }

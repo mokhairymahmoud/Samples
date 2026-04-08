@@ -22,6 +22,7 @@ dependencies {
     implementation(libs.edc.bom.controlplane.base)
     implementation(libs.edc.control.plane.api.client)
     implementation(libs.edc.iam.mock)
+    implementation(libs.edc.transform.lib)
 
     implementation(libs.edc.data.plane.spi)
     implementation(libs.edc.data.plane.core)

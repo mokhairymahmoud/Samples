@@ -26,6 +26,7 @@ dependencies {
     implementation(libs.edc.control.plane.api)
     implementation(libs.edc.control.plane.core)
     implementation(libs.edc.token.core)
+    implementation(libs.edc.transform.lib)
     implementation(libs.edc.dsp)
     implementation(libs.edc.participant.context.single.core)
     implementation(libs.edc.http)
@@ -44,6 +45,7 @@ dependencies {
 
     implementation(libs.edc.data.plane.self.registration)
     implementation(libs.edc.data.plane.signaling.api)
+    implementation(libs.edc.data.plane.signaling.client)
     implementation(libs.edc.data.plane.core)
     implementation(libs.edc.data.plane.http)
     implementation(libs.edc.data.plane.iam)

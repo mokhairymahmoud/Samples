@@ -22,6 +22,8 @@ plugins {
 dependencies {
     implementation(libs.edc.runtime.core)
     implementation(libs.edc.connector.core)
+    implementation(libs.edc.control.api.configuration)
+    implementation(libs.edc.control.plane.api.client)
     implementation(libs.edc.control.plane.core)
     implementation(libs.edc.edr.store.core)
     implementation(libs.edc.configuration.filesystem)
@@ -30,6 +32,10 @@ dependencies {
     implementation(libs.edc.participant.context.single.core)
     implementation(libs.edc.iam.mock)
     implementation(libs.edc.http)
+    implementation(libs.edc.transfer.data.plane.signaling)
+    implementation(libs.edc.data.plane.selector.api)
+    implementation(libs.edc.data.plane.selector.core)
+    implementation(libs.edc.data.plane.signaling.client)
 
     implementation(project(":policy:policy-01-policy-enforcement:policy-functions"))
 }

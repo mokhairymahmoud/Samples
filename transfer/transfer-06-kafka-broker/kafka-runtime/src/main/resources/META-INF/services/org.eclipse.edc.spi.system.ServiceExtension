@@ -1,1 +1,2 @@
 org.eclipse.edc.samples.streaming.KafkaExtension
+org.eclipse.edc.sample.runtime.DefaultTransformerExtension
