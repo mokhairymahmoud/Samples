@@ -43,7 +43,7 @@ The following [request](resources/create-asset.json) creates an asset on the pro
 
 ```bash
 curl -d @transfer/transfer-01-negotiation/resources/create-asset.json \
-  -H 'content-type: application/json' http://localhost:19193/management/v3/assets \
+  -H 'content-type: application/json' http://localhost:19193/management/v4/assets \
   -s | jq
 ```
 
@@ -60,7 +60,7 @@ This means that the consumer connector can request any asset from the provider c
 
 ```bash
 curl -d @transfer/transfer-01-negotiation/resources/create-policy.json \
-  -H 'content-type: application/json' http://localhost:19193/management/v3/policydefinitions \
+  -H 'content-type: application/json' http://localhost:19193/management/v4/policydefinitions \
   -s | jq
 ```
 
@@ -73,7 +73,7 @@ catalog. In this case, the selection is empty, so every asset is attached to the
 
 ```bash
 curl -d @transfer/transfer-01-negotiation/resources/create-contract-definition.json \
-  -H 'content-type: application/json' http://localhost:19193/management/v3/contractdefinitions \
+  -H 'content-type: application/json' http://localhost:19193/management/v4/contractdefinitions \
   -s | jq
 
 ```
@@ -97,7 +97,7 @@ offer, the so-called "catalog". To get the catalog from the consumer side, you c
 request:
 
 ```bash
-curl -X POST "http://localhost:29193/management/v3/catalog/request" \
+curl -X POST "http://localhost:29193/management/v4/catalog/request" \
     -H 'Content-Type: application/json' \
     -d @transfer/transfer-01-negotiation/resources/fetch-catalog.json -s | jq
 ```
@@ -179,7 +179,7 @@ file with the contract offer id you found in the catalog at the path `dcat:datas
 
 ```bash
 curl -d @transfer/transfer-01-negotiation/resources/negotiate-contract.json \
-  -X POST -H 'content-type: application/json' http://localhost:29193/management/v3/contractnegotiations \
+  -X POST -H 'content-type: application/json' http://localhost:29193/management/v4/contractnegotiations \
   -s | jq
 ```
 
@@ -204,7 +204,7 @@ state, the negotiation is finished. We can now use the UUID to check the current
 negotiation using an endpoint on the consumer side.
 
 ```bash
-curl -X GET "http://localhost:29193/management/v3/contractnegotiations/{{contract-negotiation-id}}" \
+curl -X GET "http://localhost:29193/management/v4/contractnegotiations/{{contract-negotiation-id}}" \
     --header 'Content-Type: application/json' \
     -s | jq
 ```

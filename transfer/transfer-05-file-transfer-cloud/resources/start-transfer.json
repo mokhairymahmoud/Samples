@@ -2,8 +2,7 @@
   "@context": {
     "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
   },
-  "@type": "TransferRequestDto",
-  "connectorId": "provider",
+  "@type": "TransferRequest",
   "counterPartyAddress": "http://localhost:19194/protocol/2025-1",
   "contractId": "{{contract-agreement-id}}",
   "protocol": "dataspace-protocol-http:2025-1",

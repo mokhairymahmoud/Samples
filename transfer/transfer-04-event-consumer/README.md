@@ -65,14 +65,14 @@ java -Dedc.fs.config=transfer/transfer-00-prerequisites/resources/configuration/
 
 ```bash
 curl -d @transfer/transfer-01-negotiation/resources/negotiate-contract.json \
-  -X POST -H 'content-type: application/json' http://localhost:29193/management/v3/contractnegotiations \
+  -X POST -H 'content-type: application/json' http://localhost:29193/management/v4/contractnegotiations \
   -s | jq
 ```
 
 ### 3. Get the contract agreement id
 
 ```bash
-curl -X GET "http://localhost:29193/management/v3/contractnegotiations/{{contract-negotiation-id}}" \
+curl -X GET "http://localhost:29193/management/v4/contractnegotiations/{{contract-negotiation-id}}" \
     --header 'Content-Type: application/json' \
     -s | jq
 ```
@@ -94,7 +94,7 @@ with the contract agreement id from the previous call.
 Afterward run:
 
 ```bash
-curl -X POST "http://localhost:29193/management/v3/transferprocesses" \
+curl -X POST "http://localhost:29193/management/v4/transferprocesses" \
   -H "Content-Type: application/json" \
   -d @transfer/transfer-02-provider-push/resources/start-transfer.json \
   -s | jq

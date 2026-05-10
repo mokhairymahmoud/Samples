@@ -87,7 +87,7 @@ java -Dedc.fs.config=transfer/transfer-05-file-transfer-cloud/cloud-transfer-con
 ### 2. Retrieve provider Contract Offers
 
 ```bash
-curl -X POST "http://localhost:29193/management/v3/catalog/request" \
+curl -X POST "http://localhost:29193/management/v4/catalog/request" \
     -H 'X-Api-Key: password' -H 'Content-Type: application/json' \
     -d @transfer/transfer-05-file-transfer-cloud/resources/fetch-catalog.json -s | jq
 ```
@@ -98,7 +98,7 @@ Please replace the {{contract-offer-id}} placeholder in the [negotiate-contract.
 
 ```bash
 curl -d @transfer/transfer-05-file-transfer-cloud/resources/negotiate-contract.json \
-  -H 'X-Api-Key: password' X POST -H 'content-type: application/json' http://localhost:29193/management/v3/contractnegotiations \
+  -H 'X-Api-Key: password' X POST -H 'content-type: application/json' http://localhost:29193/management/v4/contractnegotiations \
   -s | jq
 ```
 
@@ -107,7 +107,7 @@ We can now use the UUID to check the current status of the negotiation using an 
 ### 4. Get Contract Agreement Id
 
 ```bash
-curl -X GET "http://localhost:29193/management/v3/contractnegotiations/{{contract-negotiation-id}}" \
+curl -X GET "http://localhost:29193/management/v4/contractnegotiations/{{contract-negotiation-id}}" \
     -H 'X-Api-Key: password' --header 'Content-Type: application/json' \
     -s | jq
 ```
@@ -117,7 +117,7 @@ Please replace the {{contract-agreement-id}} placeholder in the [start-transfer.
 ### 5. Transfer Data
 
 ```bash
-curl -X POST "http://localhost:29193/management/v3/transferprocesses" \
+curl -X POST "http://localhost:29193/management/v4/transferprocesses" \
   -H 'X-Api-Key: password' -H "Content-Type: application/json" \
   -d @transfer/transfer-05-file-transfer-cloud/resources/start-transfer.json \
   -s | jq
@@ -128,7 +128,7 @@ With the given UUID, we can check the transfer process.
 ### 6. Check Transfer Status
 
 ```bash
-curl -H 'X-Api-Key: password' http://localhost:29193/management/v3/transferprocesses/<transfer-process-id> -s | jq
+curl -H 'X-Api-Key: password' http://localhost:29193/management/v4/transferprocesses/<transfer-process-id> -s | jq
 ```
 
 

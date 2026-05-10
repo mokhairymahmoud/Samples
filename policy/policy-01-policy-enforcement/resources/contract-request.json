@@ -22,6 +22,8 @@
         }
       }
     ],
+    "prohibition": [],
+    "obligation": [],
     "assigner": "provider",
     "target": "test-document"
   }

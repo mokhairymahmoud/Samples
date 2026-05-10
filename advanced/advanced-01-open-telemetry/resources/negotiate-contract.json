@@ -11,6 +11,9 @@
     "@id": "{{contract-offer-id}}",
     "@type": "Offer",
     "assigner": "provider",
-    "target": "assetId"
+    "target": "assetId",
+    "permission": [],
+    "prohibition": [],
+    "obligation": []
   }
 }

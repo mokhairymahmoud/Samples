@@ -181,7 +181,7 @@ sufficient for our example. You can view the request body for creating the asset
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "X-Api-Key: password" \
   -d @policy/policy-01-policy-enforcement/resources/create-asset.json \
-  "http://localhost:19193/management/v3/assets" | jq
+  "http://localhost:19193/management/v4/assets" | jq
 ```
 
 #### 2.2 Create the policy definition
@@ -201,7 +201,7 @@ be equal to `eu`. You can view the request body for creating the policy definiti
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "X-Api-Key: password" \
   -d @policy/policy-01-policy-enforcement/resources/create-policy.json \
-  "http://localhost:19193/management/v3/policydefinitions" | jq
+  "http://localhost:19193/management/v4/policydefinitions" | jq
 ```
 
 #### 2.3 Create the contract definition
@@ -217,7 +217,7 @@ the contract definition:
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "X-Api-Key: password" \
   -d @policy/policy-01-policy-enforcement/resources/create-contract-definition.json \
-  "http://localhost:19193/management/v3/contractdefinitions" | jq
+  "http://localhost:19193/management/v4/contractdefinitions" | jq
 ```
 
 With this, the provider now offers the asset under the condition that the requesting participant is located in the EU.
@@ -231,7 +231,7 @@ in the request. The request body is prepared in [catalog-request.json](resources
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "X-Api-Key: password" \
   -d @policy/policy-01-policy-enforcement/resources/catalog-request.json \
-  "http://localhost:29193/management/v3/catalog/request" | jq
+  "http://localhost:29193/management/v4/catalog/request" | jq
 ```
 
 We'll receive the following catalog in the response, where we can see the offer created in the provider's extension.
@@ -304,7 +304,7 @@ which protocol to use and which offer we want to negotiate. The request body is 
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "X-Api-Key: password" \
   -d @policy/policy-01-policy-enforcement/resources/contract-request.json \
-  "http://localhost:29193/management/v3/contractnegotiations" | jq
+  "http://localhost:29193/management/v4/contractnegotiations" | jq
 ```
 
 You'll get back a UUID. This is the ID of the contract negotiation process which is being asynchronously executed
@@ -316,7 +316,7 @@ Using the ID received in the previous step, we can now view the state of the neg
 of the consumer's management API:
 
 ```bash
-curl -X GET -H "X-Api-Key: password" "http://localhost:29193/management/v3/contractnegotiations/<UUID>" | jq
+curl -X GET -H "X-Api-Key: password" "http://localhost:29193/management/v4/contractnegotiations/<UUID>" | jq
 ```
 
 In the response we'll get a description of the negotiation, similar to the following:

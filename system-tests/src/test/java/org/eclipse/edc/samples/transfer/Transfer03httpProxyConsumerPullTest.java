@@ -59,6 +59,7 @@ public class Transfer03httpProxyConsumerPullTest {
         var transferProcessId = startTransfer(requestBody, contractAgreementId);
         checkTransferStatus(transferProcessId, TransferProcessStates.STARTED);
 
+        // /v3/edrs/ is deprecated in EDC 0.17.0 but retained until a DPS-based /v4/ replacement is available
         var edr = given()
                 .when()
                 .get(CONSUMER_MANAGEMENT_URL + "/v3/edrs/{id}/dataaddress", transferProcessId)

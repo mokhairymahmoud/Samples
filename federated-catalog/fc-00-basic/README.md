@@ -77,20 +77,20 @@ Once the connector is running, carry out the commands below in sequence.
 #### Create an asset
 ```shell
 curl -d @transfer/transfer-01-negotiation/resources/create-asset.json \
-  -H 'content-type: application/json' http://localhost:19193/management/v3/assets \
+  -H 'content-type: application/json' http://localhost:19193/management/v4/assets \
   -s | jq
 ```
 
 #### Create a policy
 ```bash
 curl -d @transfer/transfer-01-negotiation/resources/create-policy.json \
-  -H 'content-type: application/json' http://localhost:19193/management/v3/policydefinitions \
+  -H 'content-type: application/json' http://localhost:19193/management/v4/policydefinitions \
   -s | jq
 ```
 
 #### Create a contract definition
 ```bash
 curl -d @transfer/transfer-01-negotiation/resources/create-contract-definition.json \
-  -H 'content-type: application/json' http://localhost:19193/management/v3/contractdefinitions \
+  -H 'content-type: application/json' http://localhost:19193/management/v4/contractdefinitions \
   -s | jq
 ```

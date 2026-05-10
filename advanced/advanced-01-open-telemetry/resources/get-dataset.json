@@ -1,5 +1,7 @@
 {
-  "@context": { "@vocab": "https://w3id.org/edc/v0.0.1/ns/" },
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+  },
   "@type": "DatasetRequest",
   "@id": "assetId",
   "counterPartyId": "provider",
